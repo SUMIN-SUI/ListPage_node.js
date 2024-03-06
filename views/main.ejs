@@ -1,0 +1,28 @@
+<%- include('header') %>
+
+<a href="/add">데이터 추가</a>
+<table>
+  <tr>
+    <th>번호</th>
+    <th>제목</th>
+    <th>출판사</th>
+    <th>가격</th>
+    <th>수정/삭제</th>
+  </tr>
+  <% dbData.forEach(data => { %>
+  <tr>
+    <td><%= data.bookid %></td>
+    <td><%= data.bookname %></td>
+    <td><%= data.publisher %></td>
+    <td><%= data.price %></td>
+    <td>
+      <a href="/edit/<%= data.bookid %>">
+        <i class="fa-solid fa-pencil"></i>
+      </a>
+      <a href="/delete/<%= data.bookid %>">
+        <i class="fa-solid fa-xmark"></i>
+      </a>
+    </td>
+  </tr>
+  <% }) %>
+</table>
